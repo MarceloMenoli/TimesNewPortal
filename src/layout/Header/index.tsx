@@ -1,5 +1,9 @@
+import { Box } from "@mui/material";
+
 export const Header = () => {
-    return (
-        <div>Welcome OpenPortal!</div>
-    )
-}
+  return (
+    <Box sx={{display: 'flex'}}>
+      <div>Welcome OpenPortal!</div>
+    </Box>
+  );
+};
