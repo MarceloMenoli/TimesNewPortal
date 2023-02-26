@@ -6,9 +6,16 @@ import {
   Typography,
   Menu,
   MenuItem,
+  Fab,
+  Box,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import { AccountCircle } from "@material-ui/icons";
+import {
+  AccountCircle,
+  HomeWorkOutlined,
+  PersonPinCircle,
+} from "@material-ui/icons";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -38,16 +45,34 @@ export const Header = () => {
   return (
     <div className={classes.root}>
       <AppBar position="static">
-        <Toolbar>
-          <Typography variant="h6" className={classes.title}>
-            Logo
-          </Typography>
+        <Toolbar style={{ display: "flex", justifyContent: "center" }}>
+          <Box
+            sx={{
+              display: "grid",
+              gridTemplateColumns: "auto auto",
+              gridColumnGap: "1rem",
+              width: "100%",
+              justifyContent: "center",
+            }}
+          >
+            <Link to="/">
+              <Fab size="small" color="default" aria-label="home">
+                <HomeWorkOutlined />
+              </Fab>
+            </Link>
+            <Link to="/about-us" >
+              <Fab size="small" color="default" aria-label="aboutUs">
+                <PersonPinCircle />
+              </Fab>
+            </Link>
+          </Box>
           <IconButton
             aria-label="account of current user"
             aria-controls="menu-appbar"
             aria-haspopup="true"
             onClick={handleMenu}
             color="inherit"
+            style={{ padding: "0" }}
           >
             <AccountCircle />
           </IconButton>
@@ -74,4 +99,4 @@ export const Header = () => {
       </AppBar>
     </div>
   );
-}
+};
