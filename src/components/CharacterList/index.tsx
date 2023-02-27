@@ -1,10 +1,19 @@
-import React from "react";
 import { useCharacters } from "../../hooks/useCharecters";
 import { Character } from "../../services/Characters/types";
 
-export const CharacterList = () => {
-  const { data, isLoading, isError, error } = useCharacters(1);
+type CharacterDetailsProps = {
+  data: { results: Character[] } | undefined;
+  isLoading?: any;
+  isError?: any;
+  error?: any;
+};
 
+export const CharacterList = ({
+  data,
+  isLoading,
+  isError,
+  error,
+}: CharacterDetailsProps) => {
   if (isLoading) {
     return <div>Loading...</div>;
   }

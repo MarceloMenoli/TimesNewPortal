@@ -7,12 +7,10 @@ const queryClient = new QueryClient();
 
 function App() {
   return (
-    <Box>
-      <QueryClientProvider client={queryClient}>
-        <GlobalStyle />
-        <Content />
-      </QueryClientProvider>
-    </Box>
+    <QueryClientProvider client={queryClient}>
+      <GlobalStyle />
+      <Content />
+    </QueryClientProvider>
   );
 }
 
